@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="DR" constructor="FluentUIBadge" version="0.0.1" display-name-key="FluentUI Badge" description-key="Generates FluentUI badges from Dataverse data" control-type="standard" >
+    
+    <external-service-usage enabled="false">
+    </external-service-usage>
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
+    <property name="message" display-name-key="Message" description-key="Main Message of the badge" of-type-group="inputtypes" usage="bound" required="true"/>
+    
+    <property name="theme" display-name-key="Theme" description-key="Theme of the Badge. Default: webLightTheme" of-type="Enum" usage="input" required="true" usage="input">
+      <value name="webLightTheme" display-name-key="webLightTheme" description-key="webLightTheme" default="true">webLightTheme</value>
+      <value name="webDarkTheme" display-name-key="webDarkTheme" description-key="webDarkTheme">webDarkTheme</value>
+      <value name="teamsLightTheme" display-name-key="teamsLightTheme" description-key="teamsLightTheme">teamsLightTheme</value>
+      <value name="teamsDarkTheme" display-name-key="teamsDarkTheme" description-key="teamsDarkTheme">teamsDarkTheme</value>
+      <value name="teamsHighContrastTheme" display-name-key="teamsHighContrastTheme" description-key="teamsHighContrastTheme">teamsHighContrastTheme</value>
+    </property>
+
+    <property name="appearance" display-name-key="Appearance" description-key="Appearance of the Badge. Default: filled" of-type="Enum" usage="input" required="true" usage="input">
+      <value name="filled" display-name-key="filled" description-key="filled" default="true">filled</value>
+      <value name="ghost" display-name-key="ghost" description-key="ghost">ghost</value>
+      <value name="outline" display-name-key="outline" description-key="outline">outline</value>
+      <value name="tint" display-name-key="tint" description-key="tint">tint</value>
+    </property>
+
+    <property name="size" display-name-key="Size" description-key="Size of the Badge. Default: medium" of-type="Enum" usage="input" required="true" usage="input">
+      <value name="tiny" display-name-key="tiny" description-key="tiny">tiny</value>
+      <value name="extra-small" display-name-key="extra-small" description-key="extra-small">extra-small</value>
+      <value name="small" display-name-key="small" description-key="small">small</value>
+      <value name="medium" display-name-key="medium" description-key="medium" default="true">medium</value>
+      <value name="large" display-name-key="large" description-key="large">large</value>
+      <value name="extra-large" display-name-key="extra-large" description-key="extra-large">extra-large</value>
+    </property>
+
+    <property name="shape" display-name-key="Shape" description-key="Shape of the Badge. Default: circular" of-type="Enum" usage="input" required="true" usage="input">
+      <value name="circular" display-name-key="circular" description-key="circular" default="true">circular</value>
+      <value name="rounded" display-name-key="rounded" description-key="rounded">rounded</value>
+      <value name="square" display-name-key="square" description-key="square">square</value>
+    </property>
+
+    <property name="color" display-name-key="Color" description-key="Color of the Badge. Default: brand" of-type="Enum" usage="input" required="true" usage="input">
+      <value name="brand" display-name-key="brand" description-key="brand" default="true">brand</value>
+      <value name="danger" display-name-key="danger" description-key="danger">danger</value>
+      <value name="important" display-name-key="important" description-key="important">important</value>
+      <value name="informative" display-name-key="informative" description-key="informative">informative</value>
+      <value name="severe" display-name-key="severe" description-key="severe">severe</value>
+      <value name="subtle" display-name-key="subtle" description-key="subtle">subtle</value>
+      <value name="success" display-name-key="success" description-key="success">success</value>
+      <value name="warning" display-name-key="warning" description-key="warning">warning</value>
+
+    </property>
+
+    <property name="icon" display-name-key="Icon" description-key="(Optional) Icon to display on the badge. Available icons : https://react.fluentui.dev/?path=/docs/concepts-developer-icons--page" of-type="SingleLine.Text" usage="input"/>
+    <property name="iconposition" display-name-key="IconPosition" description-key="Position of the Icon on the badge. Default : before" of-type="Enum" usage="input" required="true" usage="input">
+      <value name="before" display-name-key="before" description-key="before" default="true">before</value>
+      <value name="after" display-name-key="after" description-key="after">after</value>
+    </property>
+
+    <!-- <property name="url" display-name-key="Redirect URL" description-key="(Optional) Redirect to this URL on click of the badge" of-type-group="urltypes" usage="input"/>
+    <type-group name="urltypes">
+        <type>SingleLine.Text</type>
+        <type>SingleLine.URL</type>
+        <type>SingleLine.TextArea</type>
+    </type-group> -->
+
+
+    <type-group name="inputtypes">
+        <type>SingleLine.Text</type>
+        <type>SingleLine.Email</type>
+        <type>SingleLine.Phone</type>
+        <type>SingleLine.Ticker</type>
+        <type>SingleLine.URL</type>
+        <type>SingleLine.TextArea</type>
+        <type>Whole.None</type>
+        <type>Currency</type>
+        <type>FP</type>
+        <type>Decimal</type>
+        <type>Lookup.Simple</type>
+        <type>DateAndTime.DateAndTime</type>
+        <type>DateAndTime.DateOnly</type>
+        <type>OptionSet</type>
+        <type>TwoOptions</type>
+        <type>Enum</type>
+        <type>Multiple</type>
+        <type>MultiSelectOptionSet</type>
+    </type-group>
+
+
+    <resources>
+      <code path="index.ts" order="1"/>
+      <!-- UNCOMMENT TO ADD MORE RESOURCES
+      <css path="css/FluentUIBadge.css" order="1" />
+      <resx path="strings/FluentUIBadge.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>
