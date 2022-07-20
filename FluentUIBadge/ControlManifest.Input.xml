@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="DR" constructor="FluentUIBadge" version="0.0.1" display-name-key="FluentUI Badge" description-key="Generates FluentUI badges from Dataverse data" control-type="standard" >
+  <control namespace="DR" constructor="FluentUIBadge" version="0.0.3" display-name-key="FluentUI Badge" description-key="Generates FluentUI badges from Dataverse data" control-type="standard" >
     
     <external-service-usage enabled="false">
     </external-service-usage>
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="message" display-name-key="Message" description-key="Main Message of the badge" of-type-group="inputtypes" usage="bound" required="true"/>
-    
-    <property name="theme" display-name-key="Theme" description-key="Theme of the Badge. Default: webLightTheme" of-type="Enum" usage="input" required="true" usage="input">
-      <value name="webLightTheme" display-name-key="webLightTheme" description-key="webLightTheme" default="true">webLightTheme</value>
-      <value name="webDarkTheme" display-name-key="webDarkTheme" description-key="webDarkTheme">webDarkTheme</value>
-      <value name="teamsLightTheme" display-name-key="teamsLightTheme" description-key="teamsLightTheme">teamsLightTheme</value>
-      <value name="teamsDarkTheme" display-name-key="teamsDarkTheme" description-key="teamsDarkTheme">teamsDarkTheme</value>
-      <value name="teamsHighContrastTheme" display-name-key="teamsHighContrastTheme" description-key="teamsHighContrastTheme">teamsHighContrastTheme</value>
-    </property>
+    <property name="input" display-name-key="Input" description-key="Input column of the badge" of-type-group="inputtypes" usage="bound" required="true"/>
+
 
     <property name="appearance" display-name-key="Appearance" description-key="Appearance of the Badge. Default: filled" of-type="Enum" usage="input" required="true" usage="input">
       <value name="filled" display-name-key="filled" description-key="filled" default="true">filled</value>
@@ -46,22 +39,7 @@
       <value name="subtle" display-name-key="subtle" description-key="subtle">subtle</value>
       <value name="success" display-name-key="success" description-key="success">success</value>
       <value name="warning" display-name-key="warning" description-key="warning">warning</value>
-
     </property>
-
-    <property name="icon" display-name-key="Icon" description-key="(Optional) Icon to display on the badge. Available icons : https://react.fluentui.dev/?path=/docs/concepts-developer-icons--page" of-type="SingleLine.Text" usage="input"/>
-    <property name="iconposition" display-name-key="IconPosition" description-key="Position of the Icon on the badge. Default : before" of-type="Enum" usage="input" required="true" usage="input">
-      <value name="before" display-name-key="before" description-key="before" default="true">before</value>
-      <value name="after" display-name-key="after" description-key="after">after</value>
-    </property>
-
-    <!-- <property name="url" display-name-key="Redirect URL" description-key="(Optional) Redirect to this URL on click of the badge" of-type-group="urltypes" usage="input"/>
-    <type-group name="urltypes">
-        <type>SingleLine.Text</type>
-        <type>SingleLine.URL</type>
-        <type>SingleLine.TextArea</type>
-    </type-group> -->
-
 
     <type-group name="inputtypes">
         <type>SingleLine.Text</type>

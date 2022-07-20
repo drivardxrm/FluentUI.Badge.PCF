@@ -1,4 +1,4 @@
-import React = require("react");
+import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import FluentUIBadgeApp from "./FluentUIBadgeApp";
 import {IInputs, IOutputs} from "./generated/ManifestTypes";
