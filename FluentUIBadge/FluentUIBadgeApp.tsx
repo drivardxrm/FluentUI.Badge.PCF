@@ -32,8 +32,9 @@ const FluentUIBadgeApp = (context:ComponentFramework.Context<IInputs>): JSX.Elem
     
     return (
         <FluentProvider theme={webLightTheme}>
-            {getInputs().map((input) => 
+            {getInputs().map((input,index) => 
                 <Badge
+                    key={`badge-${index}.`}
                     className={classes.badge}
                     appearance={appearance} 
                     size={size} 

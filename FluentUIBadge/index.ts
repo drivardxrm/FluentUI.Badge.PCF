@@ -1,10 +1,12 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import { createElement } from 'react';
+import { createRoot, Root } from 'react-dom/client';
 import FluentUIBadgeApp from "./FluentUIBadgeApp";
 import {IInputs, IOutputs} from "./generated/ManifestTypes";
 
 export class FluentUIBadge implements ComponentFramework.StandardControl<IInputs, IOutputs> {
-    private _container: HTMLDivElement;
+    
+    private _root: Root;
     /**
      * Empty constructor.
      */
@@ -24,8 +26,7 @@ export class FluentUIBadge implements ComponentFramework.StandardControl<IInputs
     public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container:HTMLDivElement): void
     {
         // Add control initialization code
-        this._container = document.createElement('div')
-	    container.appendChild(this._container)
+        this._root = createRoot(container!)
     }
 
 
@@ -36,10 +37,7 @@ export class FluentUIBadge implements ComponentFramework.StandardControl<IInputs
     public updateView(context: ComponentFramework.Context<IInputs>): void
     {
         // RENDER React Component
-        ReactDOM.render(
-            React.createElement(FluentUIBadgeApp, context),
-            this._container
-        )
+        this._root.render(createElement(FluentUIBadgeApp, context))       
     }
 
     /**
@@ -58,6 +56,6 @@ export class FluentUIBadge implements ComponentFramework.StandardControl<IInputs
     public destroy(): void
     {
         // Add code to cleanup control if necessary
-        ReactDOM.unmountComponentAtNode(this._container)
+        this._root.unmount();
     }
 }
