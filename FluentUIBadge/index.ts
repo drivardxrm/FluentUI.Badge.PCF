@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { createElement } from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import FluentUIBadgeApp from "./FluentUIBadgeApp";
