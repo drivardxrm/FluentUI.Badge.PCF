@@ -1,4 +1,4 @@
-import { Badge, FluentProvider, makeStyles, webLightTheme } from '@fluentui/react-components'
+import { Badge, FluentProvider, makeStyles, teamsDarkTheme, teamsHighContrastTheme, teamsLightTheme, Theme, webDarkTheme, webLightTheme } from '@fluentui/react-components'
 import * as React from 'react'
 import { IInputs } from './generated/ManifestTypes'
 
@@ -8,30 +8,44 @@ const useStyles = makeStyles({
     } 
 });
 
+const themes: Record<string, Theme> = {
+    "TeamsLight": teamsLightTheme,
+    "TeamsDark": teamsDarkTheme,
+    "TeamsHighContrast": teamsHighContrastTheme,
+    "WebLight": webLightTheme,
+    "WebDark": webDarkTheme,
+};
 
 const FluentUIBadgeApp = (context:ComponentFramework.Context<IInputs>): JSX.Element => {
     
+    const activetheme: Theme = themes[context.parameters.theme.raw ?? 'WebLight'];
+
     const classes = useStyles();
     const getInputs = ():string[] =>{
         let inputs:string[] = []
+        if(context.parameters.input.raw != null && 
+            context.parameters.input.raw != undefined){
 
-        switch (context.parameters.input.type) {
-            case "MultiSelectOptionSet":
-                (context.parameters.input.formatted)?.split(";").forEach(x => inputs.push(x))
-                break;
-            default:
+            if(context.parameters.separator.raw != null &&
+                context.parameters.separator.raw != undefined &&
+                context.parameters.separator.raw != ''){
+                (context.parameters.input.formatted)?.split(context.parameters.separator.raw).forEach(x => inputs.push(x))
+            }else{
                 inputs.push(context.parameters.input.formatted ?? context.parameters.input.raw)
-                break;
+            }
         }
         return inputs
-    } 
+    }
+
+        
     const appearance = context.parameters.appearance.raw ?? 'filled'
     const size = context.parameters.size.raw ?? 'medium'
     const shape = context.parameters.shape.raw ?? 'circular'
     const color = context.parameters.color.raw ?? 'brand'
-    
+
     return (
-        <FluentProvider theme={webLightTheme}>
+        
+        <FluentProvider theme={activetheme}>
             {getInputs().map((input,index) => 
                 <Badge
                     key={`badge-${index}.`}
@@ -39,11 +53,13 @@ const FluentUIBadgeApp = (context:ComponentFramework.Context<IInputs>): JSX.Elem
                     appearance={appearance} 
                     size={size} 
                     shape={shape} 
-                    color={color}>
-                        {input}
+                    color={color}
+                >
+                    {input}
                 </Badge>
             )}   
         </FluentProvider>
+        
     )
 }
 

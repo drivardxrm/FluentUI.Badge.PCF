@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="DR" constructor="FluentUIBadge" version="0.0.3" display-name-key="FluentUI Badge" description-key="Generates FluentUI badges from Dataverse data" control-type="standard" >
+  <control namespace="DR" constructor="FluentUIBadge" version="0.0.9" display-name-key="FluentUI Badge" description-key="Generates FluentUI badges from Dataverse data" control-type="standard" >
     
     <external-service-usage enabled="false">
     </external-service-usage>
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="input" display-name-key="Input" description-key="Input column of the badge" of-type-group="inputtypes" usage="bound" required="true"/>
 
+    <property name="separator" display-name-key="Separator" description-key="Optional. Will split the input in several badges. For Multiselect OptionSet (Choices) use semicolon (;)." of-type="SingleLine.Text" usage="input"/>
 
-    <property name="appearance" display-name-key="Appearance" description-key="Appearance of the Badge. Default: filled" of-type="Enum" usage="input" required="true" usage="input">
+    <property name="appearance" display-name-key="Appearance" description-key="Appearance of the Badge. Default: filled" of-type="Enum" usage="input" required="true">
       <value name="filled" display-name-key="filled" description-key="filled" default="true">filled</value>
       <value name="ghost" display-name-key="ghost" description-key="ghost">ghost</value>
       <value name="outline" display-name-key="outline" description-key="outline">outline</value>
       <value name="tint" display-name-key="tint" description-key="tint">tint</value>
     </property>
 
-    <property name="size" display-name-key="Size" description-key="Size of the Badge. Default: medium" of-type="Enum" usage="input" required="true" usage="input">
-      <value name="tiny" display-name-key="tiny" description-key="tiny">tiny</value>
-      <value name="extra-small" display-name-key="extra-small" description-key="extra-small">extra-small</value>
+    <property name="size" display-name-key="Size" description-key="Size of the Badge. Default: medium" of-type="Enum" usage="input" required="true">
       <value name="small" display-name-key="small" description-key="small">small</value>
       <value name="medium" display-name-key="medium" description-key="medium" default="true">medium</value>
       <value name="large" display-name-key="large" description-key="large">large</value>
       <value name="extra-large" display-name-key="extra-large" description-key="extra-large">extra-large</value>
     </property>
 
-    <property name="shape" display-name-key="Shape" description-key="Shape of the Badge. Default: circular" of-type="Enum" usage="input" required="true" usage="input">
+    <property name="shape" display-name-key="Shape" description-key="Shape of the Badge. Default: circular" of-type="Enum" usage="input" required="true">
       <value name="circular" display-name-key="circular" description-key="circular" default="true">circular</value>
       <value name="rounded" display-name-key="rounded" description-key="rounded">rounded</value>
       <value name="square" display-name-key="square" description-key="square">square</value>
     </property>
 
-    <property name="color" display-name-key="Color" description-key="Color of the Badge. Default: brand" of-type="Enum" usage="input" required="true" usage="input">
+    <property name="color" display-name-key="Color" description-key="Color of the Badge. Default: brand" of-type="Enum" usage="input" required="true">
       <value name="brand" display-name-key="brand" description-key="brand" default="true">brand</value>
       <value name="danger" display-name-key="danger" description-key="danger">danger</value>
       <value name="important" display-name-key="important" description-key="important">important</value>
@@ -40,6 +39,16 @@
       <value name="success" display-name-key="success" description-key="success">success</value>
       <value name="warning" display-name-key="warning" description-key="warning">warning</value>
     </property>
+
+    <property name="theme" display-name-key="Theme" description-key="Theme. Default: Web Light" of-type="Enum" usage="input" required="true">
+      <value name="WebLight" display-name-key="WebLight" description-key="Web Light Theme" default="true">WebLight</value>
+      <value name="WebDark" display-name-key="WebDark" description-key="Web Dark Theme">WebDark</value>
+      <value name="TeamsLight" display-name-key="TeamsLight" description-key="Teams Light Theme">TeamsLight</value>
+      <value name="TeamsDark" display-name-key="TeamsDark" description-key="Teams Dark Theme">TeamsDark</value>
+      <value name="TeamsHighContrast" display-name-key="TeamsHighContrast" description-key="Teams High Contrast Theme">TeamsHighContrast</value>
+    </property>
+
+
 
     <type-group name="inputtypes">
         <type>SingleLine.Text</type>
@@ -61,6 +70,8 @@
         <type>Multiple</type>
         <type>MultiSelectOptionSet</type>
     </type-group>
+
+    
 
 
     <resources>
