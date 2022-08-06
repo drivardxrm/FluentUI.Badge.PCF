@@ -1,6 +1,9 @@
 # FluentUI.Badge.PCF ![GitHub all releases](https://img.shields.io/github/downloads/drivardxrm/FluentUI.Badge.PCF/total?style=plastic)
  PowerApps Component framework (PCF) Control to render [FluentUI v9](https://react.fluentui.dev/) badges in Dataverse Model-driven forms and Canvas Apps
  
+ [Download Here](https://github.com/drivardxrm/FluentUI.Badge.PCF/releases/latest)
+ 
+ 
  #### Features:
 
 - **Generic** : Can be bound to most of the available Dataverse fields types (see available input types)
