@@ -10,10 +10,9 @@
     "refreshTypes": "pcf-scripts refreshTypes"
   },
   "dependencies": {
-    "@fluentui/react-components": "^9.1.1",
-    "@fluentui/svg-sprites": "^1.1.178",
-    "react": "^18",
-    "react-dom": "^18"
+    "@fluentui/react-components": "^9.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^16.4",
