@@ -1,6 +1,9 @@
 # FluentUI.Badge.PCF ![GitHub all releases](https://img.shields.io/github/downloads/drivardxrm/FluentUI.Badge.PCF/total?style=plastic)
  PowerApps Component framework (PCF) Control to render [FluentUI v9](https://react.fluentui.dev/) badges in Dataverse Model-driven forms and Canvas Apps
  
+ ![image](https://user-images.githubusercontent.com/38399134/183312711-27f1c065-44ae-41e7-900b-7613a32d5db1.png)
+
+ 
  [Download Here](https://github.com/drivardxrm/FluentUI.Badge.PCF/releases/latest)
  
  
@@ -42,3 +45,15 @@ TwoOptions
 Enum  
 Multiple  
 MultiSelectOptionSet  
+
+## Screenshots ##
+![image](https://user-images.githubusercontent.com/38399134/183313032-8ac87657-10d5-4f66-8341-987af95dea6a.png)
+
+![image](https://user-images.githubusercontent.com/38399134/183313049-9f19e84f-086a-455d-a623-968ab9f82a8d.png)
+
+![image](https://user-images.githubusercontent.com/38399134/183313064-f392f0e8-cbc3-410a-9543-47e38cc6a7aa.png)
+
+![image](https://user-images.githubusercontent.com/38399134/183313093-9b4e939e-8233-44a9-9695-5e7bf7ef75a3.png)
+
+
+
