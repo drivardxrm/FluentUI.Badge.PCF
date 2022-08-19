@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="DR" constructor="FluentUIBadge" version="0.0.10" display-name-key="FluentUI Badge" description-key="Generates FluentUI badges from Dataverse data" control-type="standard" >
+  <control namespace="DR" constructor="FluentUIBadge" version="0.0.11" display-name-key="FluentUI Badge" description-key="Generates FluentUI badges from Dataverse data" control-type="standard" preview-image="img/fluentui-badge.png">
     
     <external-service-usage enabled="false">
     </external-service-usage>

@@ -1,11 +1,22 @@
 import { createElement } from 'react';
 import { createRoot, Root } from 'react-dom/client';
-import FluentUIBadgeApp from "./FluentUIBadgeApp";
+import FluentUIBadgeApp, { IFluentUIBadgeProps } from "./FluentUIBadgeApp";
 import {IInputs, IOutputs} from "./generated/ManifestTypes";
 
 export class FluentUIBadge implements ComponentFramework.StandardControl<IInputs, IOutputs> {
     
     private _root: Root;
+    private _props:IFluentUIBadgeProps = {
+        input: undefined,
+        separator: undefined,
+        appearance: 'filled',
+        size: 'medium',
+        shape: 'circular',
+        color: 'brand',
+        theme: 'WebLight'
+    }
+
+
     /**
      * Empty constructor.
      */
@@ -35,8 +46,16 @@ export class FluentUIBadge implements ComponentFramework.StandardControl<IInputs
      */
     public updateView(context: ComponentFramework.Context<IInputs>): void
     {
+        this._props.input = context.parameters.input.formatted ?? context.parameters.input.raw
+        this._props.separator = context.parameters.separator.raw ?? undefined
+        this._props.appearance = context.parameters.appearance.raw ?? 'filled'
+        this._props.size = context.parameters.size.raw ?? 'medium'
+        this._props.shape = context.parameters.shape.raw ?? 'circular'
+        this._props.color = context.parameters.color.raw ?? 'brand'
+        this._props.theme = context.parameters.theme.raw ?? 'WebLight'
+        
         // RENDER React Component
-        this._root.render(createElement(FluentUIBadgeApp, context))       
+        this._root.render(createElement(FluentUIBadgeApp, this._props))       
     }
 
     /**

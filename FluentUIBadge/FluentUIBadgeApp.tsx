@@ -1,6 +1,17 @@
 import { Badge, FluentProvider, makeStyles, teamsDarkTheme, teamsHighContrastTheme, teamsLightTheme, Theme, webDarkTheme, webLightTheme } from '@fluentui/react-components'
 import * as React from 'react'
-import { IInputs } from './generated/ManifestTypes'
+
+export interface IFluentUIBadgeProps {
+
+    input: string | undefined;
+    separator: string | undefined
+    appearance: "filled" | "ghost" | "outline" | "tint"
+    shape: "circular" | "rounded" | "square"
+    color: "brand" | "danger" | "important" | "informative" | "severe" | "subtle" | "success" | "warning"
+    size: "small" | "medium" | "large" | "extra-large"
+    theme: "WebLight" | "WebDark" | "TeamsLight" | "TeamsDark" | "TeamsHighContrast"
+ }
+
 
 const useStyles = makeStyles({
     badge: { 
@@ -16,32 +27,24 @@ const themes: Record<string, Theme> = {
     "WebDark": webDarkTheme,
 };
 
-const FluentUIBadgeApp = (context:ComponentFramework.Context<IInputs>): JSX.Element => {
+const FluentUIBadgeApp = (props:IFluentUIBadgeProps): JSX.Element => {
     
-    const activetheme: Theme = themes[context.parameters.theme.raw ?? 'WebLight'];
+    const activetheme: Theme = themes[props.theme];
 
     const classes = useStyles();
     const getInputs = ():string[] =>{
         let inputs:string[] = []
-        if(context.parameters.input.raw != null && 
-            context.parameters.input.raw != undefined){
+        if(props.input != undefined){
 
-            if(context.parameters.separator.raw != null &&
-                context.parameters.separator.raw != undefined &&
-                context.parameters.separator.raw != ''){
-                (context.parameters.input.formatted)?.split(context.parameters.separator.raw).forEach(x => inputs.push(x))
+            if(props.separator != undefined &&
+                props.separator != ''){
+                (props.input)?.split(props.separator).forEach(x => inputs.push(x))
             }else{
-                inputs.push(context.parameters.input.formatted ?? context.parameters.input.raw)
+                inputs.push(props.input)
             }
         }
         return inputs
     }
-
-        
-    const appearance = context.parameters.appearance.raw ?? 'filled'
-    const size = context.parameters.size.raw ?? 'medium'
-    const shape = context.parameters.shape.raw ?? 'circular'
-    const color = context.parameters.color.raw ?? 'brand'
 
     return (
         
@@ -50,10 +53,10 @@ const FluentUIBadgeApp = (context:ComponentFramework.Context<IInputs>): JSX.Elem
                 <Badge
                     key={`badge-${index}.`}
                     className={classes.badge}
-                    appearance={appearance} 
-                    size={size} 
-                    shape={shape} 
-                    color={color}
+                    appearance={props.appearance} 
+                    size={props.size} 
+                    shape={props.shape} 
+                    color={props.color}
                 >
                     {input}
                 </Badge>
