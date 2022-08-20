@@ -11,7 +11,7 @@
     "refreshTypes": "pcf-scripts refreshTypes",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "gh-pages -d storybook-static",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "dependencies": {
     "@fluentui/react-components": "^9.2.0",
