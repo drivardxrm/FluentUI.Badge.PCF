@@ -6,6 +6,8 @@
  
  [Download Here](https://github.com/drivardxrm/FluentUI.Badge.PCF/releases/latest)
  
+ [Try Component in Storybook](https://drivardxrm.github.io/FluentUI.Badge.PCF/)
+ 
  
  #### Features:
 
