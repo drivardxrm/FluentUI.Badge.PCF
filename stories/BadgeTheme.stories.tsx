@@ -6,7 +6,7 @@ import FluentUIBadgeApp from '../FluentUIBadge/FluentUIBadgeApp';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Components/FluentUI Badge/Theme',
+  title: 'FluentUI Badge/Theme',
   component: FluentUIBadgeApp,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof FluentUIBadgeApp>;
